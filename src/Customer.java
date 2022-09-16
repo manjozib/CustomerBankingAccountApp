@@ -89,7 +89,6 @@ public class Customer {
         double balance = linkedList.get(i).getBalance() + amountDeposited;
 
         linkedList.get(i).setBalance(balance);
-        System.out.println(linkedList.get(i));
         Customer c = new Customer(linkedList.get(i).getName(), linkedList.get(i).getSsnNumber(), linkedList.get(i).getAccountType(),
                 linkedList.get(i).getInitialDeposit(), linkedList.get(i).getAccountNumber(), linkedList.get(i).getBalance());
         linkedList.set(i, c);
@@ -106,6 +105,7 @@ public class Customer {
                     ", accountType='" + accountType + '\'' +
                     ", initialDeposit=" + initialDeposit +
                     ", accountNumber=" + accountNumber +
+                    ", balance=" + balance +
                     '}';
         }
 
@@ -147,15 +147,45 @@ public class Customer {
         double remainingBalance = linkedList.get(i).getBalance() - amountWithdrawn;
         System.out.println(remainingBalance);
         linkedList.get(i).setBalance(remainingBalance);
-        System.out.println(linkedList.get(i));
         Customer c = new Customer(linkedList.get(i).getName(), linkedList.get(i).getSsnNumber(), linkedList.get(i).getAccountType(),
                 linkedList.get(i).getInitialDeposit(), linkedList.get(i).getAccountNumber(), linkedList.get(i).getBalance());
         linkedList.set(i, c);
 
+
     }
 
     public void transfer(long senderSsNumber, long recipientSsNumber, double amountTransfered) {
-        
+        int i, j;
+        for (i = 0; i < linkedList.size(); i++) {
+            if (linkedList.get(i).getSsnNumber() == senderSsNumber) {
+                break;
+            }
+
+        }
+
+        double senderNewBalance = linkedList.get(i).getBalance() - amountTransfered;
+        System.out.println(senderNewBalance);
+        linkedList.get(i).setBalance(senderNewBalance);
+        Customer senderCustomer = new Customer(linkedList.get(i).getName(), linkedList.get(i).getSsnNumber(), linkedList.get(i).getAccountType(),
+                linkedList.get(i).getInitialDeposit(), linkedList.get(i).getAccountNumber(), linkedList.get(i).getBalance());
+        linkedList.set(i, senderCustomer);
+
+
+        for (j = 0; j < linkedList.size(); j++) {
+            if (linkedList.get(j).getSsnNumber() == recipientSsNumber) {
+                break;
+            }
+
+        }
+
+        double recipientNewBalance = linkedList.get(j).getBalance() + amountTransfered;
+
+        linkedList.get(j).setBalance(recipientNewBalance);
+        Customer recipientCustomer = new Customer(linkedList.get(j).getName(), linkedList.get(j).getSsnNumber(), linkedList.get(j).getAccountType(),
+                linkedList.get(j).getInitialDeposit(), linkedList.get(j).getAccountNumber(), linkedList.get(j).getBalance());
+        linkedList.set(j, recipientCustomer);
+
+
     }
 
 
