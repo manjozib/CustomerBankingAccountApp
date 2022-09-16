@@ -8,7 +8,6 @@ public class ExtractionOfCustomers {
     public static LinkedList<Customer> method() {
         String COMMA_DELIMITER = ",";
         LinkedList<Customer> customers = new LinkedList<>();
-        LinkedList<SavingsAccount> savingsAccounts = new LinkedList<>();
         Customer customer = new Customer();
         BufferedReader br;
 
@@ -37,11 +36,6 @@ public class ExtractionOfCustomers {
         } catch (IOException io) {
             io.printStackTrace();
         }
-
-
-
-
-        //System.out.println(customers);
         return customers;
     }
 
