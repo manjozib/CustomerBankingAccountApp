@@ -1,7 +1,7 @@
 public class SavingsAccount extends Customer implements Interest {
 
     private long depositBoxNumber;
-    private int accesingCode;
+    private int accessingCode;
 
     public SavingsAccount() {
 
@@ -11,12 +11,12 @@ public class SavingsAccount extends Customer implements Interest {
     public SavingsAccount(String name, long ssnNumber, String accountType, double initialDeposit, long accountNumber, double balance, long depositBoxNumber, int accesingCode) {
         super(name, ssnNumber, accountType, initialDeposit, accountNumber, balance);
         this.depositBoxNumber = depositBoxNumber;
-        this.accesingCode = accesingCode;
+        this.accessingCode = accesingCode;
     }
 
     public SavingsAccount(long depositBoxNumber, int accesingCode) {
         this.depositBoxNumber = depositBoxNumber;
-        this.accesingCode = accesingCode;
+        this.accessingCode = accesingCode;
     }
 
     public void setDepositBoxNumber(long depositBoxNumber) {
@@ -24,7 +24,7 @@ public class SavingsAccount extends Customer implements Interest {
     }
 
     public void setAccesingCode(int accesingCode) {
-        this.accesingCode = accesingCode;
+        this.accessingCode = accesingCode;
     }
 
     public long getDepositBoxNumber() {
@@ -32,7 +32,7 @@ public class SavingsAccount extends Customer implements Interest {
     }
 
     public int getAccesingCode() {
-        return accesingCode;
+        return accessingCode;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class SavingsAccount extends Customer implements Interest {
                 ", initialDeposit='" + getInitialDeposit() + '\'' +
                 ", accountNumber='" + getAccountNumber() + '\'' +
                 "depositBoxNumber='" + getDepositBoxNumber() + '\'' +
-                ", accesingCode='" + getAccesingCode() + '\'' +
+                ", accessingCode='" + getAccesingCode() + '\'' +
                 '}';
     }
 }
